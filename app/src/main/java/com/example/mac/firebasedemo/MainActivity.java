@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 if (mUser != null) {
                     // User is signed in
                     getSupportActionBar().setTitle(mUser.getEmail());
+                    //removeDataFromDatabase();
                 } else {
                     // User is signed out
                     Log.d(TAG, "not logged in");
@@ -188,5 +189,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     public static void send(ChatMessage chatMessage) {
         sFirebaseDatabaseReference.child(MESSAGES_CHILD).push().setValue(chatMessage);
+    }
+
+    public static void removeDataFromDatabase(){
+        //clears firebase database.
+        DatabaseReference root = FirebaseDatabase.getInstance().getReference();
+        root.setValue(null);
     }
 }
