@@ -18,7 +18,7 @@ public class MessageUtil {
     private static final String LOG_TAG = MessageUtil.class.getSimpleName();
     public static final String MESSAGES_CHILD = "messages";
     private static DatabaseReference sFirebaseDatabaseReference =
-            FirebaseDatabase.getInstance().getReference();
+    FirebaseDatabase.getInstance().getReference();
     private static MessageLoadListener sAdapterListener;
     private static FirebaseAuth sFirebaseAuth;
     public interface MessageLoadListener {  };
@@ -43,7 +43,9 @@ public class MessageUtil {
                 ChatMessage.class,
                 R.layout.message,
                 MessageViewHolder.class,
-                sFirebaseDatabaseReference.child(MESSAGES_CHILD)) {
+                sFirebaseDatabaseReference.child(MESSAGES_CHILD))
+
+        {
             @Override
             protected void populateViewHolder(final MessageViewHolder viewHolder,
                                               ChatMessage chatMessage, int position) {

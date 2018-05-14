@@ -25,10 +25,14 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import com.example.mac.firebasedemo.SignInActivity;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener,
         MessageUtil.MessageLoadListener{
@@ -137,6 +141,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             }
         });
 
+
         mSendButton = (FloatingActionButton) findViewById(R.id.sendButton);
         mSendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -204,18 +209,74 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         Log.d(TAG, "onConnectionFailed:" + connectionResult);
         Toast.makeText(this, "Google Play Services error.", Toast.LENGTH_SHORT).show();
     }
-
     public static void send(ChatMessage chatMessage) {
+
+
         sFirebaseDatabaseReference.child(MESSAGES_CHILD).push().setValue(chatMessage);
+       /* DatabaseReference userRef = sFirebaseDatabaseReference.child(MESSAGES_CHILD);
+        ValueEventListener eventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                List<String> list = new ArrayList<>();
+                for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                    //ds.child()
+                    String userId = ds.getKey();
+
+                    list.add(userId);
+
+                }
+                Log.d("BOO", list.toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        };
+        userRef.addListenerForSingleValueEvent(eventListener);
+*/
+
+
+
+
+
+
+
+        //Log.e("error",sFirebaseDatabaseReference.child(MESSAGES_CHILD).child("uid").toString());
+        //Log.wtf("wtf",sFirebaseDatabaseReference.child(MESSAGES_CHILD).child("timestamp").toString());
     }
+
 
     public static void addSong(Vote song) {
         sFirebaseDatabaseReference.child(SONGS_CHILD).push().setValue(song);
+
+
+        DatabaseReference songRef = sFirebaseDatabaseReference.child(SONGS_CHILD);
+        ValueEventListener eventSongListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                List<String> list = new ArrayList<>();
+                for(DataSnapshot songSnap : dataSnapshot.getChildren()) {
+
+                    String userId = songSnap.getKey();
+
+                    list.add(userId);
+
+                }
+                Log.d("SONGS", list.toString());
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        };
+        songRef.addListenerForSingleValueEvent(eventSongListener);
     }
 
     public static void removeDataFromDatabase(){
-        //clears firebase database.
+
         DatabaseReference root = FirebaseDatabase.getInstance().getReference();
         root.setValue(null);
     }
+
+
+
 }
