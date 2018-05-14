@@ -6,4 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".VoteActivity">
 
+    <Button
+        android:id="@+id/song1Vote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="107dp"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/song2Vote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/song3Vote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="122dp"
+        android:text="Button" />
 </RelativeLayout>

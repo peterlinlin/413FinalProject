@@ -26,6 +26,7 @@ public class RoleChoice extends AppCompatActivity {
                 assignDj();
             }
         });
+
         viewerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

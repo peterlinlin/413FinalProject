@@ -137,38 +137,27 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             }
         });
 
-        songOneEdit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
         mSendButton = (FloatingActionButton) findViewById(R.id.sendButton);
         mSendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Send messages on click.
                 mMessageRecyclerView.scrollToPosition(0);
-                ChatMessage chatMessage = new
-                        ChatMessage(mUser.getDisplayName(),
-                        mUser.getEmail(),
-                        mUser.getUid(),
-                        mMessageEditText.getText().toString());
+
+//                ChatMessage chatMessage = new
+//                        ChatMessage(mUser.getDisplayName(),
+//                        mUser.getEmail(),
+//                        mUser.getUid(),
+//                        mMessageEditText.getText().toString());
+//                send(chatMessage);
+
                 Vote songs = new Vote (songOneEdit.getText().toString(), songTwoEdit.getText().toString(),songThreeEdit.getText().toString());
-                send(chatMessage);
+
                 addSong(songs);
                 mMessageEditText.setText("");
+                songOneEdit.setText("");
+                songTwoEdit.setText("");
+                songThreeEdit.setText("");
             }
         });
     }

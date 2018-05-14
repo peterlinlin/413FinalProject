@@ -1,6 +1,7 @@
 package com.example.mac.firebasedemo;
 
 import java.util.Date;
+import java.util.HashMap;
 
 public class Vote {
     private String song1;
@@ -17,6 +18,7 @@ public class Vote {
         this.song2 = song2;
         this.song3 = song3;
     }
+
 
     public long getTimestamp() {
         return timestamp;
@@ -47,12 +49,7 @@ public class Vote {
         this.song3 = song3;
     }
 
-    public void setEmail(String email){
-        this.email = email;
-    }
 
-    public String getEmail(){
-        return this.email;
-    }
+
 }
 
