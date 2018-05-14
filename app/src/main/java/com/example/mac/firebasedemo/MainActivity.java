@@ -213,6 +213,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
 
         sFirebaseDatabaseReference.child(MESSAGES_CHILD).push().setValue(chatMessage);
+
+
        /* DatabaseReference userRef = sFirebaseDatabaseReference.child(MESSAGES_CHILD);
         ValueEventListener eventListener = new ValueEventListener() {
             @Override
