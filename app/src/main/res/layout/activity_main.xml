@@ -11,51 +11,55 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/messageRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="331dp"
-            android:layout_above="@+id/linearLayout"
-            android:layout_marginBottom="125dp" />
+        <EditText
+            android:id="@+id/songThreeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/songTwoText"
+            android:text="Song 3" />
 
-        <RelativeLayout
-            android:id="@+id/linearLayout"
+        <EditText
+            android:id="@+id/songTwoText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/songOneText"
+            android:layout_centerHorizontal="true"
+            android:text="Song 2" />
+
+        <EditText
+            android:id="@+id/songOneText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="198dp"
+            android:text="Song 1" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/sendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/messageEditText"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_send_white_24dp" />
+
+        <EditText
+            android:id="@+id/messageEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:orientation="vertical">
+            android:layout_marginBottom="28dp"
+            android:inputType="textMultiLine"
+            android:paddingTop="20dp" />
 
-            <EditText
-                android:id="@+id/messageEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:inputType="textMultiLine"
-                android:paddingTop="20dp" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/messageRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="471dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="0dp"
-                android:orientation="horizontal">
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/sendButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_send_white_24dp" />
-            </RelativeLayout>
-
-        </RelativeLayout>
     </RelativeLayout>
 </LinearLayout>

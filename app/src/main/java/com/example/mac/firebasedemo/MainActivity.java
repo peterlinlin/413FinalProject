@@ -38,15 +38,17 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private FloatingActionButton mSendButton;
     private RecyclerView mMessageRecyclerView;
     private LinearLayoutManager mLinearLayoutManager;
-    private EditText mMessageEditText;
+    private EditText mMessageEditText, songOneEdit, songTwoEdit, songThreeEdit;
     private FirebaseUser mUser;
     private GoogleApiClient mGoogleApiClient;
     public static final String MESSAGES_CHILD = "messages";
     public static final String SONGS_CHILD = "songs";
+    private Vote song1,song2,song3;
     private static DatabaseReference sFirebaseDatabaseReference =
             FirebaseDatabase.getInstance().getReference();
 
     public static final int MSG_LENGTH_LIMIT = 64;
+    public static final int SONG_LENGTH_LIMIT = 25;
 
     private FirebaseRecyclerAdapter<ChatMessage, MessageUtil.MessageViewHolder>
             mFirebaseAdapter;
@@ -108,7 +110,14 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         mMessageRecyclerView.setAdapter(mFirebaseAdapter);
 
         mMessageEditText = (EditText) findViewById(R.id.messageEditText);
+        songOneEdit = (EditText) findViewById(R.id.songOneText);
+        songTwoEdit = (EditText) findViewById(R.id.songTwoText);
+        songThreeEdit = (EditText) findViewById(R.id.songThreeText);
+        songOneEdit.setFilters(new InputFilter[]{new InputFilter.LengthFilter(SONG_LENGTH_LIMIT)});
+        songTwoEdit.setFilters(new InputFilter[]{new InputFilter.LengthFilter(SONG_LENGTH_LIMIT)});
+        songThreeEdit.setFilters(new InputFilter[]{new InputFilter.LengthFilter(SONG_LENGTH_LIMIT)});
         mMessageEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(MSG_LENGTH_LIMIT)});
+
         mMessageEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -128,6 +137,23 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             }
         });
 
+        songOneEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
         mSendButton = (FloatingActionButton) findViewById(R.id.sendButton);
         mSendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,7 +165,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                         mUser.getEmail(),
                         mUser.getUid(),
                         mMessageEditText.getText().toString());
+                Vote songs = new Vote (songOneEdit.getText().toString(), songTwoEdit.getText().toString(),songThreeEdit.getText().toString());
                 send(chatMessage);
+                addSong(songs);
                 mMessageEditText.setText("");
             }
         });
