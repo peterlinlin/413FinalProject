@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignInActivity" />
-        <activity android:name=".VoteActivity"></activity>
+        <activity android:name=".VoteActivity" />
+        <activity android:name=".RoleChoice"></activity>
     </application>
 
 </manifest>

@@ -3,39 +3,48 @@ package com.example.mac.firebasedemo;
 import java.util.Date;
 
 public class Vote {
-    //private String song;
-    private String name;
-    private String uid;
+    private String song1;
+    private String song2;
+    private String song3;
     private String email;
     private long timestamp;
 
     public Vote() {
     }
 
-    public Vote(String name, String email, String uid) {
-        this.name = name;
-        this.uid = uid;
-        this.timestamp = new Date().getTime();
+    public Vote(String song1, String song2, String song3) {
+        this.song1 = song1;
+        this.song2 = song2;
+        this.song3 = song3;
     }
 
     public long getTimestamp() {
         return timestamp;
     }
 
-    public String getName() {
-        return name;
+    public String getSong1() {
+        return song1;
+    }
+    public String getSong2() {
+        return song2;
+    }
+    public String getSong3() {
+        return song3;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSong1(String song1)
+    {
+        this.song1 = song1;
     }
 
-    public String getUid(){
-        return this.uid;
+    public void setSong2(String song1)
+    {
+        this.song2 = song2;
     }
 
-    public void setUid(String uid){
-        this.uid = uid;
+    public void setSong(String song1)
+    {
+        this.song3 = song3;
     }
 
     public void setEmail(String email){

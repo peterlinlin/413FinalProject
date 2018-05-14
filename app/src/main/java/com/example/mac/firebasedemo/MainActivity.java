@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private FirebaseUser mUser;
     private GoogleApiClient mGoogleApiClient;
     public static final String MESSAGES_CHILD = "messages";
+    public static final String SONGS_CHILD = "songs";
     private static DatabaseReference sFirebaseDatabaseReference =
             FirebaseDatabase.getInstance().getReference();
 
@@ -189,6 +190,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     public static void send(ChatMessage chatMessage) {
         sFirebaseDatabaseReference.child(MESSAGES_CHILD).push().setValue(chatMessage);
+    }
+
+    public static void addSong(Vote song) {
+        sFirebaseDatabaseReference.child(SONGS_CHILD).push().setValue(song);
     }
 
     public static void removeDataFromDatabase(){

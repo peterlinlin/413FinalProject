@@ -7,18 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/messageRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/linearLayout" />
+            android:layout_height="331dp"
+            android:layout_above="@+id/linearLayout"
+            android:layout_marginBottom="125dp" />
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,26 +31,31 @@
                 android:id="@+id/messageEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
                 android:inputType="textMultiLine"
-                android:paddingTop="20dp"/>
-            <LinearLayout
-                android:orientation="horizontal"
+                android:paddingTop="20dp" />
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
+                android:orientation="horizontal">
 
                 <View
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1" />
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/sendButton"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:src="@drawable/ic_send_white_24dp"
-                    />
-            </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_send_white_24dp" />
+            </RelativeLayout>
 
-        </LinearLayout>
+        </RelativeLayout>
     </RelativeLayout>
 </LinearLayout>
