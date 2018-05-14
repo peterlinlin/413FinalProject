@@ -48,7 +48,6 @@ public class SignInActivity extends AppCompatActivity implements
     private static final int RC_SIGN_IN = 9001;
     private SignInButton mSignInButton;
     private GoogleApiClient mGoogleApiClient;
-    private boolean dj;
 
     // Firebase instance variables
     private FirebaseAuth mAuth;
@@ -144,7 +143,6 @@ public class SignInActivity extends AppCompatActivity implements
                             mAuth = FirebaseAuth.getInstance();
                             final FirebaseUser firebaseUser = mAuth.getCurrentUser();
                             startActivity(new Intent(SignInActivity.this, RoleChoice.class));
-                            //startActivity(new Intent(SignInActivity.this, MainActivity.class));
                             finish();
                         }
                     }

@@ -7,6 +7,9 @@ public class Vote {
     private String song1;
     private String song2;
     private String song3;
+    private Integer song1count;
+    private Integer song2count;
+    private Integer song3count;
     private String email;
     private long timestamp;
 
@@ -17,6 +20,9 @@ public class Vote {
         this.song1 = song1;
         this.song2 = song2;
         this.song3 = song3;
+        song1count = 0;
+        song2count = 0;
+        song3count = 0;
     }
 
 
@@ -33,6 +39,22 @@ public class Vote {
     public String getSong3() {
         return song3;
     }
+
+    public Integer getSong1count() {
+        return song1count;
+    }
+
+    public Integer getSong2count() {
+        return song2count;
+    }
+
+    public Integer getSong3count() {
+        return song3count;
+    }
+
+    public void setSong1count(Integer song1count) {this.song1count= song1count;}
+    public void setSong2count(Integer song2count) {this.song2count= song2count;}
+    public void setSong3count(Integer song3count) {this.song3count= song3count;}
 
     public void setSong1(String song1)
     {
