@@ -11,12 +11,47 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/nextSong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:text="Next Song" />
+
+        <TextView
+            android:id="@+id/votecount3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/songThreeText"
+            android:layout_centerHorizontal="true"
+            android:text="Vote Count" />
+
+        <TextView
+            android:id="@+id/votecount2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/songTwoText"
+            android:layout_centerHorizontal="true"
+            android:text="Vote Count" />
+
+        <TextView
+            android:id="@+id/votecount1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/songOneText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-126dp"
+            android:text="Vote Count" />
+
         <EditText
             android:id="@+id/songThreeText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/songTwoText"
+            android:layout_marginBottom="127dp"
             android:inputType="text"
             android:maxLines="1"
             android:text="Song 3" />
@@ -26,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/songOneText"
+            android:layout_centerVertical="true"
             android:inputType="text"
             android:maxLines="1"
             android:text="Song 2" />
@@ -37,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="198dp"
+            android:layout_marginTop="126dp"
             android:inputType="text"
             android:maxLines="1"
             android:text="Song 1" />
@@ -46,26 +81,12 @@
             android:id="@+id/sendButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/messageEditText"
-            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40dp"
             android:src="@drawable/ic_send_white_24dp" />
 
-        <EditText
-            android:id="@+id/messageEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="72dp"
-            android:inputType="textMultiLine"
-            android:paddingTop="20dp" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/messageRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="198dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true" />
-
     </RelativeLayout>
+
+
 </LinearLayout>

@@ -29,8 +29,8 @@ public class VoteActivity extends AppCompatActivity {
     private static DatabaseReference sFirebaseDatabaseReference =
             FirebaseDatabase.getInstance().getReference();
     public static final String SONGS_CHILD = "songs";
-    private static boolean voted = false;
     final DatabaseReference songRef = sFirebaseDatabaseReference.child(SONGS_CHILD);
+    private static boolean voted = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,15 +56,10 @@ public class VoteActivity extends AppCompatActivity {
                     song1 = songSnap.child("song1").getValue(String.class);
                     song2 = songSnap.child("song2").getValue(String.class);
                     song3 = songSnap.child("song3").getValue(String.class);
-                    Log.d("song1name", song1);
-                    System.out.println("Song1 name" + song1);
                     song1name.setText(song1);
                     song2name.setText(song2);
                     song3name.setText(song3);
                 }
-                song1name.setText(song1);
-                song2name.setText(song2);
-                song3name.setText(song3);
             }
 
             @Override
@@ -100,6 +95,10 @@ public class VoteActivity extends AppCompatActivity {
 
     public static void voted() {
         voted = true;
+    }
+
+    public static void refreshVote() {
+        voted = false;
     }
 
     public void voteCheck()
